@@ -1,22 +1,26 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Virtual Browser</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="toolbar">
-    <input id="address" type="text" placeholder="https://example.com">
-    <button onclick="loadSite()">Go</button>
+    <button id="backBtn" title="Back" disabled>&larr;</button>
+    <button id="forwardBtn" title="Forward" disabled>&rarr;</button>
+    <input id="address" type="text" placeholder="https://example.com" />
+    <button id="goBtn">Go</button>
   </div>
 
   <div class="frame-wrap">
-    <iframe id="view" sandbox="allow-scripts allow-forms allow-same-origin"></iframe>
+    <!-- use src rather than srcdoc so same-origin behavior is consistent -->
+    <iframe id="view" sandbox="allow-forms allow-modals allow-popups allow-scripts allow-same-origin"></iframe>
   </div>
 
-  <pre id="status"></pre>
+  <div id="status" class="status">Idle</div>
+
   <script src="script.js"></script>
 </body>
 </html>
